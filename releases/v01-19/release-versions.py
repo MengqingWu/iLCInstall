@@ -237,4 +237,4 @@ XercesC_version = "3.1.4"
 Eigen_version = "3.3.4"
 Eutelescope_version = "master"
 Eudaq_version = "tags/v1.8.1"
-Millepede2_version = 'tags/V04-05-00'
+Millepede2_version = 'tags/V05-05-01'
