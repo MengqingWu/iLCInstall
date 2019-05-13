@@ -6,7 +6,6 @@
 # The external base tools need to be installed.
 #
 ##############################################################################
-import datetime
 
 # ======================= RELEASE VERSION ====================================
 
@@ -14,15 +13,13 @@ ilcsoft_release = 'eutel_v02-00-00'
 
 # ======================= PACKAGE VERSIONS ===================================
 
-CLHEP_version =  "2.3.1.1"
+CLHEP_version =  "2.4.1.0"
 
-GSL_version = "2.1" 
+GSL_version = "2.5" 
 
-QT_version = "4.7.4"
+Eigen_version = "3.3.7"
 
-Eigen_version = "3.3.4"
-
-CMake_version = "3.11.2"
+CMake_version = "3.11.1"
 
 ROOT_version = "6.13.02"
 
@@ -44,8 +41,8 @@ GEAR_version = "v01-06-eutel-pre"
 
 GBL_version = "V02-01-03"
 
-Millepede2_version = 'tags/V04-03-09'
+Millepede2_version = 'tags/V04-05-01'
 
-Eudaq_version = "tags/v1.8.1"
+Eudaq_version = "tags/v1.9.0"
 
 Eutelescope_version = "master"
