@@ -21,7 +21,10 @@ If called without options a summary of the installation is displayed. Examples o
 * prerequisites: some installations (e.g. java) are not supported in ilcinstall, these packages need to be available on the system, paths can be changed in releases/release-versions.py
 
 * for debian/ubuntu distributions you may need to install a few packages beforehand such as (TO BE CHECKED):
-```apt-get install build-essential cmake subversion libmysqlclient-dev freeglut3-dev zlib1g-dev default-jdk libxpm-dev libxmu-dev lesstif2-dev```
+  ```
+  apt-get install build-essential cmake subversion libmysqlclient-dev freeglut3-dev zlib1g-dev \
+  default-jdk libxpm-dev libxmu-dev lesstif2-dev
+  ```
 
 * In general, it is possible to set the path for the installation to elsewhere by setting the environment variable ILCSOFT, by default it is on the parent directory where the iLCInstaller is cloned to.
 
@@ -29,135 +32,134 @@ If called without options a summary of the installation is displayed. Examples o
 
 1. Check the prerequisites on your system.
 2. Choose installation location and define path using the ILCSOFT environment variable:
-```
-export ILCSOFT=/PATH-WHERE-TO-INSTALL
-mkdir -p $ILCSOFT
-```
+  ```
+  export ILCSOFT=/PATH-WHERE-TO-INSTALL
+  mkdir -p $ILCSOFT
+  ```
 3. Get iLCInstall code:
-```
-cd $ILCSOFT
-git clone -b master https://github.com/eutelescope/ilcinstall
-```
+  ```
+  cd $ILCSOFT
+  git clone -b master https://github.com/eutelescope/ilcinstall
+  ```
 4. Run the installation using the appropiate installation configuration:
-```
-cd ilcinstall
-./ilcsoft-install -i releases/release-local-standalone.cfg
-```
+  ```
+  cd ilcinstall
+  ./ilcsoft-install -i releases/release-local-standalone.cfg
+  ```
 
 ### LOCAL (nocmakenoroot version)
 
 1. Check the prerequisites on your system. Source your CMake and ROOT installations.
 2. Choose installation location and define path using the ILCSOFT environment variable:
-```
-export ILCSOFT=/PATH-WHERE-TO-INSTALL
-mkdir -p $ILCSOFT
-```
+  ```
+  export ILCSOFT=/PATH-WHERE-TO-INSTALL
+  mkdir -p $ILCSOFT
+  ```
 3. Get iLCInstall code:
-```
-cd $ILCSOFT
-git clone -b master https://github.com/eutelescope/ilcinstall
-```
+  ```
+  cd $ILCSOFT
+  git clone -b master https://github.com/eutelescope/ilcinstall
+  ```
 4. Run the installation using the appropiate installation configuration:
-```
-cd ilcinstall
-./ilcsoft-install -i releases/release-local-nocmakenoroot.cfg
-```
+  ```
+  cd ilcinstall
+  ./ilcsoft-install -i releases/release-local-nocmakenoroot.cfg
+  ```
 
 ### DESY NAF (standalone version)
 
 1. Login to NAF.
 2. Enable the right compilers, modern git version and environments:
-```
-scl enable devtoolset-4 rh-git29 bash
-```
+  ```
+  scl enable devtoolset-4 rh-git29 bash
+  ```
 3. Choose installation location (e.g. on dust) and define path using the ILCSOFT environment variable: 
-```
-export ILCSOFT=/nfs/dust/GROUP/user/USER/NAME
-mkdir -p $ILCSOFT
-```
+  ```
+  export ILCSOFT=/nfs/dust/GROUP/user/USER/NAME
+  mkdir -p $ILCSOFT
+  ```
 4. Get iLCInstall code:
-```
-cd $ILCSOFT
-git clone -b master https://github.com/eutelescope/ilcinstall
-```
+  ```
+  cd $ILCSOFT
+  git clone -b master https://github.com/eutelescope/ilcinstall
+  ```
 5. Run the installation using the appropiate installation configuration:
-```
-cd ilcinstall
-./ilcsoft-install -i releases/release-desynaf-standalone.cfg
-```
+  ```
+  cd ilcinstall
+  ./ilcsoft-install -i releases/release-desynaf-standalone.cfg
+  ```
 
 ### DESY NAF (cvmfs version)
 
 1. Login to NAF.
 2. Enable the modern git version for bash and source ROOT-enviroment from CVMFS:
-```
-scl enable rh-git29 bash
-source /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-slc6-gcc62-opt/ROOT-env.sh
-```
+  ```
+  scl enable rh-git29 bash
+  source /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-slc6-gcc62-opt/ROOT-env.sh
+  ```
 3. Choose installation location (e.g. on dust) and define path using the ILCSOFT environment variable:
-```
-export ILCSOFT=/nfs/dust/GROUP/user/USER/NAME
-mkdir -p $ILCSOFT
-```
+  ```
+  export ILCSOFT=/nfs/dust/GROUP/user/USER/NAME
+  mkdir -p $ILCSOFT
+  ```
 4. Get iLCInstall code:
-```
-cd $ILCSOFT
-git clone -b master https://github.com/eutelescope/ilcinstall
-```
+  ```
+  cd $ILCSOFT
+  git clone -b master https://github.com/eutelescope/ilcinstall
+  ```
 5. Run the installation	using the appropiate installation configuration:
-```
-cd ilcinstall
-./ilcsoft-install -i releases/release-desynaf-cvmfs.cfg
-```
+  ```
+  cd ilcinstall
+  ./ilcsoft-install -i releases/release-desynaf-cvmfs.cfg
+  ```
 
 ### CERN LXPLUS (cvmfs version, Centos7)
 
 1. Login to LXPLUS (by default it is Centos7).
 2. Enable modern git version for bash and source ROOT-enviroment from CVMFS:
-```
-scl enable rh-git29 bash
-source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-centos7-gcc62-opt/ROOT-env.sh
-```
+  ```
+  scl enable rh-git29 bash
+  source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-centos7-gcc62-opt/ROOT-env.sh
+  ```
 3. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
-```
-export ILCSOFT=/eos/user/USERINTIAL/USERNAME
-mkdir -p $ILCSOFT
-```
+  ```
+  export ILCSOFT=/eos/user/USERINTIAL/USERNAME
+  mkdir -p $ILCSOFT
+  ```
 4. Get iLCInstall code:
-```
-cd $ILCSOFT
-git clone -b master https://github.com/eutelescope/ilcinstall
-```
+  ```
+  cd $ILCSOFT
+  git clone -b master https://github.com/eutelescope/ilcinstall
+  ```
 5. Run the installation using the appropiate installation configuration:
-```
-cd ilcinstall
-./ilcsoft-install -i releases/release-lxplus-centos7.cfg
-```
+  ```
+  cd ilcinstall
+  ./ilcsoft-install -i releases/release-lxplus-centos7.cfg
+  ```
 
 ### CERN LXPLUS (cvmfs version, SLC6)
 
 1. Login to LXPLUS and SLC6 machines using `lxplus6.cern.ch` as login node.
 2. Enable modern git version for bash and source ROOT-enviroment from CVMFS:
-```
-scl enable rh-git29 bash
-source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
-```
+  ```
+  scl enable rh-git29 bash
+  source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
+  ```
 3. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
-```
-export ILCSOFT=/eos/user/USERINTIAL/USERNAME
-mkdir -p $ILCSOFT
-```
+  ```
+  export ILCSOFT=/eos/user/USERINTIAL/USERNAME
+  mkdir -p $ILCSOFT
+  ```
 4. Get iLCInstall code:
-```
-cd $ILCSOFT
-git clone -b master https://github.com/eutelescope/ilcinstall
-```
+  ```
+  cd $ILCSOFT
+  git clone -b master https://github.com/eutelescope/ilcinstall
+  ```
 5. Run the installation using the appropiate installation configuration:
-```
-cd ilcinstall
-./ilcsoft-install -i releases/release-lxplus-slc6.cfg
-```
-
+  ```
+  cd ilcinstall
+  ./ilcsoft-install -i releases/release-lxplus-slc6.cfg
+  ```
 
 ### Informations/Caveats:
 
