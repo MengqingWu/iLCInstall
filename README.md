@@ -1,7 +1,4 @@
-
-BE CAREFUL, STILL PRE-RELEASE VERSION!!!
-
-# iLCInstall
+# iLCInstall for EUTelescope
 
 Installation script that enable a fully automated installation of EUTelescope and its dependencies, based on the installation of iLCSoft.
 
@@ -9,12 +6,14 @@ iLCInstall is distributed under the [GPLv3 License](http://www.gnu.org/licenses/
 
 [![License](https://www.gnu.org/graphics/gplv3-127x51.png)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
+and the original version can be found on [GitHub](https://github.com/iLCSoft/iLCInstall).
+
 
 ## General Usage
 
 The script can be called with the following syntax:
 ```
-ilcsoft-install install.cfg [ -p, -i ]
+./ilcsoft-install install.cfg [ -p, -i ]
 ```
 options description:
 * -p to preview installation environment
@@ -25,13 +24,53 @@ If called without options a summary of the installation is displayed. Examples o
 
 ## Usage for EUTelescope:
 
-* prerequisites: boost, mysql, java and cernlib installations are not supported in ilcinstall, these packages need to be available on the system, 
+* prerequisites: some installations (e.g. java) are not supported in ilcinstall, these packages need to be available on the system, 
 * paths can be changed in releases/release-versions.py
 
 * for debian/ubuntu distributions you may need to install a few packages beforehand such as (TO BE CHECKED):
-* apt-get install build-essential cmake subversion libmysqlclient-dev freeglut3-dev zlib1g-dev libqt4-dev cernlib-core-dev 
-* default-jdk libxpm-dev libxmu-dev lesstif2-dev doxygen latex2html
+* apt-get install build-essential cmake subversion libmysqlclient-dev freeglut3-dev zlib1g-dev default-jdk libxpm-dev libxmu-dev lesstif2-dev
 
+
+* In general, it is possible to set the path for the installation to elsewhere by setting the environment variable ILCSOFT, by default it
+* is on the parent directory where the iLCInstaller is cloned to.
+
+### LOCAL (standalone version)
+
+1. Check the prerequisites on your system.
+2. Choose installation location and define path using the ILCSOFT environment variable:
+```
+export ILCSOFT=/PATH-WHERE-TO-INSTALL
+mkdir -p $ILCSOFT
+```
+3. Get iLCInstall code:
+```
+cd $ILCSOFT
+git clone -b master https://github.com/eutelescope/ilcinstall
+```
+4. Run the installation using the appropiate installation configuration:
+```
+cd ilcinstall
+./ilcsoft-install -i releases/release-local-standalone.cfg
+```
+
+### LOCAL (nocmakenoroot version)
+
+1. Check the prerequisites on your system. Source your CMake and ROOT installations.
+2. Choose installation location and define path using the ILCSOFT environment variable:
+```
+export ILCSOFT=/PATH-WHERE-TO-INSTALL
+mkdir -p $ILCSOFT
+```
+3. Get iLCInstall code:
+```
+cd $ILCSOFT
+git clone -b master https://github.com/eutelescope/ilcinstall
+```
+4. Run the installation using the appropiate installation configuration:
+```
+cd ilcinstall
+./ilcsoft-install -i releases/release-local-nocmakenoroot.cfg
+```
 
 ### DESY NAF (standalone version)
 
@@ -50,7 +89,7 @@ mkdir -p $ILCSOFT
 cd $ILCSOFT
 git clone -b master https://github.com/eutelescope/ilcinstall
 ```
-5. Run the installation using the appropiate installation configuration (here: ```release/release-desynaf-standalone.cfg```):
+5. Run the installation using the appropiate installation configuration:
 ```
 cd ilcinstall
 ./ilcsoft-install -i releases/release-desynaf-standalone.cfg
@@ -74,12 +113,77 @@ mkdir -p $ILCSOFT
 cd $ILCSOFT
 git clone -b master https://github.com/eutelescope/ilcinstall
 ```
-5. Run the installation	using the appropiate installation configuration	(here: ```release/release-desynaf-cvmfs.cfg```):
+5. Run the installation	using the appropiate installation configuration:
 ```
 cd ilcinstall
 ./ilcsoft-install -i releases/release-desynaf-cvmfs.cfg
 ```
 
+### CERN LXPLUS (cvmfs version, Centos7)
+
+1. Login to LXPLUS (by default it is Centos7).
+2. Enable modern git version for bash and source ROOT-enviroment from CVMFS:
+```
+scl enable rh-git29 bash
+source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-centos7-gcc62-opt/ROOT-env.sh
+```
+3. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
+```
+export ILCSOFT=/eos/user/USERINTIAL/USERNAME
+mkdir -p $ILCSOFT
+```
+4. Get iLCInstall code:
+```
+cd $ILCSOFT
+git clone -b master https://github.com/eutelescope/ilcinstall
+```
+5. Run the installation using the appropiate installation configuration:
+```
+cd ilcinstall
+./ilcsoft-install -i releases/release-lxplus-centos7.cfg
+```
+
+### CERN LXPLUS (cvmfs version, SLC6)
+
+1. Login to LXPLUS and SLC6 machines using `lxplus6.cern.ch` as login node.
+2. Enable modern git version for bash and source ROOT-enviroment from CVMFS:
+```
+scl enable rh-git29 bash
+source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
+```
+3. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
+```
+export ILCSOFT=/eos/user/USERINTIAL/USERNAME
+mkdir -p $ILCSOFT
+```
+4. Get iLCInstall code:
+```
+cd $ILCSOFT
+git clone -b master https://github.com/eutelescope/ilcinstall
+```
+5. Run the installation using the appropiate installation configuration:
+```
+cd ilcinstall
+./ilcsoft-install -i releases/release-lxplus-slc6.cfg
+```
+
+
+###Informations/Caveats:
+
+* A standalone version for LXPLUS is not supported currently, because of the required ROOT installation. Anyway, if
+* CVMFS is mounted on your system, it is advisable to link it with the installation due to the speed up in time.
+* For this check the releases named with cvmfs to get an idea.
+
+* Sometimes it is possible that a dependency for EUTelescope is changing which can have then implications on the 
+* installation process itself. In case of problems with the installation, please report on the 
+* [GitHub issue tracker](https://github.com/eutelescope/iLCInstall/issues).
+
+* When running EUTelescope, go to the EUTelescope installation with `cd $EUTELESCOPE/RELEASEVERSION/Eutelescope/master`
+* and source the environment script `build_env.sh`. If you started from a fresh terminal, do NOT forget to also prepare
+* the general environment (e.g. when using CVMFS, source the ROOT environment). Maybe it is an option to add this to 
+* your `.bashrc`.
+
+* For information about EUTelescope itself, please refer to its [GitHub](https://github.com/eutelescope/eutelescope).
 
 
 ## License and Copyright
