@@ -91,74 +91,64 @@ If called without options a summary of the installation is displayed. Examples o
 
 ### DESY NAF (cvmfs version)
 
-1. Login to NAF.
-2. Enable the modern git version for bash and source ROOT-enviroment from CVMFS:
+1. Login to NAF (current default is SLC6 machines).
+2. Enable the modern git version for bash: and :
   ```
   scl enable rh-git29 bash
+  ```
+3. Source ROOT-environment from CVMFS appropiate to your system, so for SLC6 machine:
+  ```
   source /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-slc6-gcc62-opt/ROOT-env.sh
   ```
-3. Choose installation location (e.g. on dust) and define path using the ILCSOFT environment variable:
+  or for Centos7 machine:
+  ```
+  source /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc62-opt/ROOT-env.sh
+  ```
+4. Choose installation location (e.g. on dust) and define path using the ILCSOFT environment variable:
   ```
   export ILCSOFT=/nfs/dust/GROUP/user/USER/NAME
   mkdir -p $ILCSOFT
   ```
-4. Get iLCInstall code:
+5. Get iLCInstall code:
   ```
   cd $ILCSOFT
   git clone -b master https://github.com/eutelescope/ilcinstall
   ```
-5. Run the installation	using the appropiate installation configuration:
+6. Run the installation	using the appropiate installation configuration:
   ```
   cd ilcinstall
   ./ilcsoft-install -i releases/release-desynaf-cvmfs.cfg
   ```
 
-### CERN LXPLUS (cvmfs version, Centos7)
+### CERN LXPLUS (cvmfs version)
 
-1. Login to LXPLUS (by default it is Centos7).
-2. Enable modern git version for bash and source ROOT-enviroment from CVMFS:
+1. Login to LXPLUS (by default it is Centos7, but you can also connect to SLC6 with `lxplus6.cern.ch` as login node).
+2. Enable modern git version for bash:
   ```
   scl enable rh-git29 bash
+  ```
+3. Source ROOT-environment from CVMFS appropiate to your system, so for Centos7 machine:
+  ```
   source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-centos7-gcc62-opt/ROOT-env.sh
   ```
-3. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
+  or for SLC6 machine: 
   ```
-  export ILCSOFT=/eos/user/USERINTIAL/USERNAME
-  mkdir -p $ILCSOFT
-  ```
-4. Get iLCInstall code:
-  ```
-  cd $ILCSOFT
-  git clone -b master https://github.com/eutelescope/ilcinstall
-  ```
-5. Run the installation using the appropiate installation configuration:
-  ```
-  cd ilcinstall
-  ./ilcsoft-install -i releases/release-lxplus-centos7.cfg
-  ```
-
-### CERN LXPLUS (cvmfs version, SLC6)
-
-1. Login to LXPLUS and SLC6 machines using `lxplus6.cern.ch` as login node.
-2. Enable modern git version for bash and source ROOT-enviroment from CVMFS:
-  ```
-  scl enable rh-git29 bash
   source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
-  ```
-3. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
+  ```  
+4. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
   ```
   export ILCSOFT=/eos/user/USERINTIAL/USERNAME
   mkdir -p $ILCSOFT
   ```
-4. Get iLCInstall code:
+5. Get iLCInstall code:
   ```
   cd $ILCSOFT
   git clone -b master https://github.com/eutelescope/ilcinstall
   ```
-5. Run the installation using the appropiate installation configuration:
+6. Run the installation using the appropiate installation configuration:
   ```
   cd ilcinstall
-  ./ilcsoft-install -i releases/release-lxplus-slc6.cfg
+  ./ilcsoft-install -i releases/release-lxplus-cvmfs.cfg
   ```
 
 ### Informations/Caveats:
