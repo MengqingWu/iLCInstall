@@ -96,13 +96,13 @@ If called without options a summary of the installation is displayed. Examples o
   ```
   scl enable rh-git29 bash
   ```
-3. Source ROOT-environment from CVMFS appropiate to your system, so for SLC6 machine:
+3. Source ROOT-environment from CVMFS appropiate to your system:
   ```
-  source /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-slc6-gcc62-opt/ROOT-env.sh
-  ```
-  or for Centos7 machine:
-  ```
-  source /cvmfs/sft.cern.ch/lcg/releases/LCG_95/ROOT/6.16.00/x86_64-centos7-gcc62-opt/ROOT-env.sh
+  //for SLC6 machine
+  source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
+  
+  //for Centos7 machine
+  source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-centos7-gcc62-opt/ROOT-env.sh
   ```
 4. Choose installation location (e.g. on dust) and define path using the ILCSOFT environment variable:
   ```
@@ -127,14 +127,14 @@ If called without options a summary of the installation is displayed. Examples o
   ```
   scl enable rh-git29 bash
   ```
-3. Source ROOT-environment from CVMFS appropiate to your system, so for Centos7 machine:
+3. Source ROOT-environment from CVMFS appropiate to your system:
   ```
+  //for SLC6 machine
+  source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
+  
+  //for Centos7 machine
   source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-centos7-gcc62-opt/ROOT-env.sh
   ```
-  or for SLC6 machine: 
-  ```
-  source /cvmfs/sft.cern.ch/lcg/releases/LCG_94/ROOT/6.14.04/x86_64-slc6-gcc62-opt/ROOT-env.sh
-  ```  
 4. Choose installation location (e.g. on eos) and define path using the ILCSOFT environment variable:
   ```
   export ILCSOFT=/eos/user/USERINTIAL/USERNAME
