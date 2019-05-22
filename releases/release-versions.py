@@ -43,6 +43,6 @@ GBL_version = "V02-01-03"
 
 Millepede2_version = 'tags/V04-05-01'
 
-Eudaq_version = "tags/v1.9.0"
+Eudaq_version = "tags/v1.9.0" #Empty string if you don't want to install EUDAQ
 
 Eutelescope_version = "master"
