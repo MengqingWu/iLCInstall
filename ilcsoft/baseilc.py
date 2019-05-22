@@ -1109,7 +1109,10 @@ class BaseILC:
                     continue
                 path = str.join(':', v)
                 path = path + ':'
-                f.write( "export " + k + "=\"" + path + "$" + k + "\"" + os.linesep )
+                if ( k == "MARLIN_DLL" ): # To prevent problems with double sourcing arising with MARLIN_DLL
+                    f.write( "export " + k + "=\"" + path + "\"" + os.linesep )
+                else:
+                    f.write( "export " + k + "=\"" + path + "$" + k + "\"" + os.linesep )
 
         if( len(checked) > 1 ):
             mods = self.optmodules + self.reqmodules
