@@ -24,7 +24,7 @@ CMake_version = "3.11.1"
 ROOT_version = "6.13.02"
 
 
-LCIO_version = "master" 
+LCIO_version = "v02-12-01" 
 
 ILCUTIL_version = "v01-02-01"
 
